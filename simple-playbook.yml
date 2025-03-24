@@ -1,0 +1,16 @@
+---
+- name: Install and Start Nginx
+  hosts: all
+  become: true  # Run tasks as sudo
+
+  tasks:
+    - name: Install Nginx
+      package:
+        name: nginx
+        state: present
+
+    - name: Start Nginx service
+      service:
+        name: nginx
+        state: started
+        enabled: yes
